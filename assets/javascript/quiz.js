@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     var score;
-    var seconds1 = 5;
+    var seconds1 = 10;
     
     function getRadioVal(form, name) {
         var ans;
@@ -51,7 +51,7 @@ $(document).ready(function() {
         // this (keyword) refers to form to which onsubmit attached
         // 'one' is name of radio button group
 
-        if( getRadioVal(this, 'one') == '2' ){ var q1 = 1;} else { var q1 = 0;}
+        if( getRadioVal(this, 'one') == '1' ){ var q1 = 1;} else { var q1 = 0;}
         if( getRadioVal(this, 'two') == '2' ){ var q2 = 1;} else { var q2 = 0;}
         if( getRadioVal(this, 'three') == '3' ){ var q3 = 1;} else { var q3 = 0;}
         console.log(q1);console.log(q2);console.log(q3);
