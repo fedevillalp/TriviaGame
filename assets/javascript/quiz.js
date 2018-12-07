@@ -33,8 +33,9 @@ $(document).ready(function() {
     
         if (seconds1 == -1){
             stopTime1();
+            submit();
             $('#questionForm').empty();
-            $('.clock_display').text("Game Over - Time is UP!");
+            $('.clock_display').text("Time is UP!");
         }
     }
     
@@ -57,11 +58,28 @@ $(document).ready(function() {
         console.log(q1);console.log(q2);console.log(q3);
         
         score = parseInt(q1) + parseInt(q2) + parseInt(q3);
-        $('#score').text("Your final score is: " + score);
+        $('#questionForm').empty();
+        $('#score').text("Correct Answers: " + score);
+        $('#incorrect_score').text("Incorrect Answers: " + (3-score));
         
     }
 
     startTime1();
+
+    function submit(){
+
+            stopTime1()
+            let x = document.getElementById('questionForm')
+            if( getRadioVal(x, 'one') == '1' ){ var q1 = 1;} else { var q1 = 0;}
+            if( getRadioVal(x, 'two') == '2' ){ var q2 = 1;} else { var q2 = 0;}
+            if( getRadioVal(x, 'three') == '3' ){ var q3 = 1;} else { var q3 = 0;}
+            console.log(q1);console.log(q2);console.log(q3);
+            
+            score = parseInt(q1) + parseInt(q2) + parseInt(q3);
+            $('#score').text("Correct Answers: " + score);
+            $('#incorrect_score').text("Incorrect Answers: " + (3-score));
+            
+    }
 
 });
 
