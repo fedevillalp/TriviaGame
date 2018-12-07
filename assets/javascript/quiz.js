@@ -16,7 +16,7 @@ $(document).ready(function() {
                 break; // and break out of for loop
             }
         }
-        console.log(ans);
+        
         return ans; // return value of checked radio or undefined if none checked
         
     }
@@ -50,11 +50,13 @@ $(document).ready(function() {
         event.preventDefault()
         // this (keyword) refers to form to which onsubmit attached
         // 'one' is name of radio button group
-        var question1 = getRadioVal(this, 'one');
-        var question2 = getRadioVal(this, 'two');
-        var question3 = getRadioVal(this, 'three');
+
+        if( getRadioVal(this, 'one') == '2' ){ var q1 = 1;} else { var q1 = 0;}
+        if( getRadioVal(this, 'two') == '2' ){ var q2 = 1;} else { var q2 = 0;}
+        if( getRadioVal(this, 'three') == '3' ){ var q3 = 1;} else { var q3 = 0;}
+        console.log(q1);console.log(q2);console.log(q3);
         
-        score = parseInt(question1) + parseInt(question2) + parseInt(question3);
+        score = parseInt(q1) + parseInt(q2) + parseInt(q3);
         $('#score').text("Your final score is: " + score);
         
     }
